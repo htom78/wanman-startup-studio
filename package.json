@@ -5,6 +5,8 @@
   "description": "Stage-gated AI-native startup operating system for Idea Stage through MVP Gate.",
   "scripts": {
     "check": "node --check scripts/new-startup-run.mjs && node --check scripts/promote-stage.mjs && node --check scripts/add-product-research-module.mjs && node --check scripts/add-dev-department-module.mjs && node --check scripts/validate-stage.mjs",
-    "test": "npm run check && node scripts/validate-stage.mjs runs/demo-wanman-startup-studio all"
+    "monospend:prototype": "node prototypes/monospend-ai-ledger/server.mjs",
+    "test:monospend": "node prototypes/monospend-ai-ledger/tests/extractor.test.mjs",
+    "test": "npm run check && npm run test:monospend && node scripts/validate-stage.mjs runs/demo-wanman-startup-studio all"
   }
 }

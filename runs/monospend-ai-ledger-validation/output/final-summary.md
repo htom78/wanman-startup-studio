@@ -35,7 +35,7 @@ Proceed with the pivot from live-math notepad to AI capture into notepad ledger.
 
 ## Next actions
 
-1. Build a tiny AI extraction prototype.
+1. Run the local prototype in `prototypes/monospend-ai-ledger`.
 2. Test text input first, then receipt image, then voice if cheap.
 3. Show users the ledger line before save.
 4. Recruit 5 to 10 manual trackers for a one-week test.

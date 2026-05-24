@@ -46,9 +46,12 @@ Build only the validation MVP:
 
 Do not build bank sync, cloud sync, charts, AI advice, shared budgets, or native polish yet.
 
+Prototype path:
+
+`prototypes/monospend-ai-ledger`
+
 ## Success threshold
 
 The MVP is worth continuing if 5 to 10 target users enter real expenses, correct the AI output, save ledger lines, and come back within one week.
 
 If users like AI capture but ignore the notepad ledger, pivot toward a more conventional AI expense tracker or stop.
-

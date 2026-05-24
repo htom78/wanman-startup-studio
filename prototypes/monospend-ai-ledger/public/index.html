@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MonoSpend AI Ledger</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">MonoSpend Prototype</p>
+          <h1>AI capture to notepad ledger</h1>
+        </div>
+        <div class="status-pill" id="storageStatus">Local ledger</div>
+      </header>
+
+      <section class="workspace" aria-label="MonoSpend AI ledger workspace">
+        <section class="panel capture-panel" aria-label="Capture expense">
+          <div class="panel-head">
+            <h2>Capture</h2>
+            <div class="mode-tabs" role="tablist" aria-label="Input mode">
+              <button class="mode-tab active" type="button" data-mode="text">Text</button>
+              <button class="mode-tab" type="button" data-mode="voice">Voice</button>
+              <button class="mode-tab" type="button" data-mode="photo">Photo</button>
+            </div>
+          </div>
+
+          <div class="mode-pane active" data-pane="text">
+            <label for="textInput">Money note</label>
+            <textarea id="textInput" spellcheck="false">lunch ramen at Ramen House $15.50 today</textarea>
+          </div>
+
+          <div class="mode-pane" data-pane="voice">
+            <label for="voiceInput">Transcript</label>
+            <textarea id="voiceInput" spellcheck="false" placeholder="Press Record or type a transcript"></textarea>
+            <div class="button-row">
+              <button class="secondary" type="button" id="recordButton">Record</button>
+              <span class="hint" id="voiceStatus">Browser speech support varies.</span>
+            </div>
+          </div>
+
+          <div class="mode-pane" data-pane="photo">
+            <label for="photoInput">Receipt image</label>
+            <input id="photoInput" type="file" accept="image/*">
+            <img id="receiptPreview" class="receipt-preview" alt="Receipt preview">
+            <label for="receiptText">Receipt notes</label>
+            <textarea id="receiptText" spellcheck="false" placeholder="Local mode: paste receipt text here. OpenAI mode can read the image."></textarea>
+          </div>
+
+          <div class="button-row action-row">
+            <button class="primary" type="button" id="extractButton">Extract</button>
+            <button class="secondary" type="button" id="sampleButton">Sample</button>
+          </div>
+          <p class="message" id="message" role="status"></p>
+        </section>
+
+        <section class="panel review-panel" aria-label="Review extracted ledger entry">
+          <div class="panel-head">
+            <h2>Review</h2>
+            <span id="providerBadge" class="mini-badge">local</span>
+          </div>
+
+          <form class="entry-grid" id="entryForm">
+            <label>Date<input name="date" id="dateField" autocomplete="off"></label>
+            <label>Amount<input name="amount" id="amountField" inputmode="decimal" autocomplete="off"></label>
+            <label>Currency<input name="currency" id="currencyField" autocomplete="off"></label>
+            <label>Merchant<input name="merchant" id="merchantField" autocomplete="off"></label>
+            <label>Category
+              <select name="category" id="categoryField">
+                <option>food</option>
+                <option>transport</option>
+                <option>housing</option>
+                <option>shopping</option>
+                <option>health</option>
+                <option>income</option>
+                <option>other</option>
+              </select>
+            </label>
+            <label>Confidence<input name="confidence" id="confidenceField" inputmode="decimal" autocomplete="off"></label>
+          </form>
+
+          <label for="ledgerLine">Ledger line</label>
+          <textarea id="ledgerLine" class="ledger-line" spellcheck="false"></textarea>
+
+          <div class="button-row action-row">
+            <button class="primary" type="button" id="saveButton">Save</button>
+            <button class="secondary" type="button" id="clearDraftButton">Clear</button>
+          </div>
+        </section>
+
+        <section class="panel ledger-panel" aria-label="Ledger">
+          <div class="panel-head">
+            <h2>Ledger</h2>
+            <span class="mini-badge" id="entryCount">0 entries</span>
+          </div>
+
+          <div class="totals">
+            <div><span>Total</span><strong id="totalAmount">USD 0.00</strong></div>
+            <div><span>Top category</span><strong id="topCategory">none</strong></div>
+          </div>
+
+          <ol class="ledger-list" id="ledgerList"></ol>
+
+          <div class="button-row export-row">
+            <button class="secondary" type="button" id="exportMarkdown">Markdown</button>
+            <button class="secondary" type="button" id="exportJson">JSONL</button>
+            <button class="secondary" type="button" id="exportCsv">CSV</button>
+            <button class="danger" type="button" id="clearLedger">Clear ledger</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
