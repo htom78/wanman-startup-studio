@@ -1,0 +1,27 @@
+{
+  "objective": "TODO: approved MVP build objective",
+  "lanes": [
+    {
+      "id": "foundation",
+      "agent": "dev-foundation",
+      "dependsOn": [],
+      "scope": ["TODO"],
+      "deliverables": ["TODO"],
+      "verification": ["TODO"]
+    },
+    {
+      "id": "feature",
+      "agent": "dev-feature",
+      "dependsOn": ["foundation"],
+      "scope": ["TODO"],
+      "deliverables": ["TODO"],
+      "verification": ["TODO"]
+    }
+  ],
+  "integration": {
+    "owner": "dev-integrator",
+    "mergeOrder": ["foundation", "feature"],
+    "requiredChecks": ["TODO"]
+  }
+}
+

@@ -6,12 +6,15 @@ Modules are reusable stage capabilities. V0 implements the Idea-to-MVP Gate path
 
 - `idea/product-research`: maps the existing `ai-product-research-studio` work into the parent startup lifecycle.
 - `mvp/scope-control`: keeps MVP planning bounded before build work starts.
+- `mvp/dev-department`: plans parallel coding-agent implementation after MVP Gate approval.
 
 ## Module commands
 
 ```bash
 node scripts/add-product-research-module.mjs runs/<run-id>
 node scripts/validate-stage.mjs runs/<run-id> product-research
+node scripts/add-dev-department-module.mjs runs/<run-id>
+node scripts/validate-stage.mjs runs/<run-id> dev
 ```
 
 ## Deferred

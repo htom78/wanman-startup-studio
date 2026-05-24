@@ -28,8 +28,17 @@ const PRODUCT_RESEARCH_REQUIRED = [
   ["output/modules/idea/product-research/landing-page-experiment.md", 550]
 ];
 
+const DEV_REQUIRED = [
+  ["output/modules/mvp/dev-department/department-plan.md", 700],
+  ["output/modules/mvp/dev-department/parallel-task-graph.json", 500],
+  ["output/modules/mvp/dev-department/agent-lanes.md", 650],
+  ["output/modules/mvp/dev-department/worktree-strategy.md", 650],
+  ["output/modules/mvp/dev-department/integration-plan.md", 550],
+  ["output/modules/mvp/dev-department/review-gate.md", 500]
+];
+
 function usage() {
-  console.error("Usage: node scripts/validate-stage.mjs <run-dir> [idea|mvp|all]");
+  console.error("Usage: node scripts/validate-stage.mjs <run-dir> [idea|mvp|product-research|dev|all]");
   process.exit(2);
 }
 
@@ -178,9 +187,50 @@ function validateProductResearch(root, failures) {
   requireSections(failures, files.landing, landing, ["First viewport", "CTA", "Smoke test", "Claims", "Do not build"]);
 }
 
+function validateDev(root, failures) {
+  validateRequired(root, DEV_REQUIRED, failures);
+
+  const files = {
+    plan: "output/modules/mvp/dev-department/department-plan.md",
+    graph: "output/modules/mvp/dev-department/parallel-task-graph.json",
+    lanes: "output/modules/mvp/dev-department/agent-lanes.md",
+    worktree: "output/modules/mvp/dev-department/worktree-strategy.md",
+    integration: "output/modules/mvp/dev-department/integration-plan.md",
+    review: "output/modules/mvp/dev-department/review-gate.md"
+  };
+
+  for (const relative of Object.values(files)) {
+    if (!fs.existsSync(path.join(root, relative))) return;
+  }
+
+  const plan = read(path.join(root, files.plan));
+  requireSections(failures, files.plan, plan, ["Build objective", "Department structure", "Parallelization strategy", "Shared contracts", "Stop conditions", "Verification"]);
+
+  try {
+    const graph = JSON.parse(read(path.join(root, files.graph)));
+    if (!Array.isArray(graph.lanes) || graph.lanes.length < 2) fail(failures, `${files.graph} must define at least 2 lanes`);
+    if (!graph.integration || !Array.isArray(graph.integration.requiredChecks)) fail(failures, `${files.graph} must define integration.requiredChecks`);
+  } catch (error) {
+    fail(failures, `${files.graph} must be valid JSON (${error.message})`);
+  }
+
+  const lanes = read(path.join(root, files.lanes));
+  requireSections(failures, files.lanes, lanes, ["Dev lead", "Foundation agent", "QA agent", "Integration agent", "Escalation"]);
+
+  const worktree = read(path.join(root, files.worktree));
+  requireSections(failures, files.worktree, worktree, ["Runner options", "Isolation model", "Shared context", "Sync protocol", "Conflict policy", "Cleanup"]);
+
+  const integration = read(path.join(root, files.integration));
+  requireSections(failures, files.integration, integration, ["Merge order", "Required checks", "Manual checks", "Rollback plan", "Release artifact"]);
+
+  const review = read(path.join(root, files.review));
+  requireRegex(failures, files.review, review, /Decision:\s*(MERGE|REVISE|STOP)\b/i, "must include a legal Dev Review Gate decision");
+  requireSections(failures, files.review, review, ["Review scope", "Findings", "Verification results", "Risks", "Next action"]);
+}
+
 const runDir = process.argv[2];
 const stage = process.argv[3] || "idea";
-if (!runDir || !["idea", "mvp", "product-research", "all"].includes(stage)) usage();
+if (!runDir || !["idea", "mvp", "product-research", "dev", "all"].includes(stage)) usage();
 
 const root = path.resolve(process.cwd(), runDir);
 const failures = [];
@@ -193,6 +243,10 @@ if (!fs.existsSync(root)) {
   const productResearchDir = path.join(root, "output/modules/idea/product-research");
   if (stage === "product-research" || (stage === "all" && fs.existsSync(productResearchDir))) {
     validateProductResearch(root, failures);
+  }
+  const devDepartmentDir = path.join(root, "output/modules/mvp/dev-department");
+  if (stage === "dev" || (stage === "all" && fs.existsSync(devDepartmentDir))) {
+    validateDev(root, failures);
   }
 }
 

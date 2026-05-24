@@ -1,0 +1,16 @@
+{
+  "name": "dev-department",
+  "stage": "mvp",
+  "purpose": "Plan parallel coding-agent implementation after the MVP Gate approves BUILD.",
+  "requiredGate": "output/mvp/gate-decision.md contains Decision: BUILD",
+  "requiredFiles": [
+    "output/modules/mvp/dev-department/department-plan.md",
+    "output/modules/mvp/dev-department/parallel-task-graph.json",
+    "output/modules/mvp/dev-department/agent-lanes.md",
+    "output/modules/mvp/dev-department/worktree-strategy.md",
+    "output/modules/mvp/dev-department/integration-plan.md",
+    "output/modules/mvp/dev-department/review-gate.md"
+  ],
+  "validator": "node scripts/validate-stage.mjs <run-dir> dev"
+}
+

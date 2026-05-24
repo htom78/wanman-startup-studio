@@ -57,6 +57,13 @@ node scripts/add-product-research-module.mjs runs/<run-id>
 node scripts/validate-stage.mjs runs/<run-id> product-research
 ```
 
+挂载 Dev Department：
+
+```bash
+node scripts/add-dev-department-module.mjs runs/<run-id>
+node scripts/validate-stage.mjs runs/<run-id> dev
+```
+
 ## 阶段门控
 
 Idea Gate 只有三个合法结论：

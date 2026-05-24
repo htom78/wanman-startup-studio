@@ -37,6 +37,12 @@
       "systemPrompt": "# Product Architect\n\nRun only after Idea Gate approval. Produce MVP scope, architecture brief, and measurement framework. Keep scope bounded and record persistent context."
     },
     {
+      "name": "dev-lead",
+      "lifecycle": "on-demand",
+      "model": "high",
+      "systemPrompt": "# Dev Lead\n\nRun only after MVP Gate approval. Read system/roles/dev-lead.md and produce the Dev Department plan. Split coding work into isolated lanes with explicit checks, integration order, and a review gate."
+    },
+    {
       "name": "security-reviewer",
       "lifecycle": "on-demand",
       "model": "standard",

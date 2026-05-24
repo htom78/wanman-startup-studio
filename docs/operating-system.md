@@ -30,7 +30,14 @@ node scripts/promote-stage.mjs runs/<run-id>
 ```
 
 7. Complete MVP Gate files in `runs/<run-id>/output/mvp/`.
-8. Validate the complete run:
+8. Optional: attach the Dev Department module after the MVP Gate says `Decision: BUILD`:
+
+```bash
+node scripts/add-dev-department-module.mjs runs/<run-id>
+node scripts/validate-stage.mjs runs/<run-id> dev
+```
+
+9. Validate the complete run:
 
 ```bash
 node scripts/validate-stage.mjs runs/<run-id> all
@@ -63,6 +70,15 @@ Product Research module:
 - `output/modules/idea/product-research/source-index.md`
 - `output/modules/idea/product-research/positioning-notes.md`
 - `output/modules/idea/product-research/landing-page-experiment.md`
+
+Dev Department module:
+
+- `output/modules/mvp/dev-department/department-plan.md`
+- `output/modules/mvp/dev-department/parallel-task-graph.json`
+- `output/modules/mvp/dev-department/agent-lanes.md`
+- `output/modules/mvp/dev-department/worktree-strategy.md`
+- `output/modules/mvp/dev-department/integration-plan.md`
+- `output/modules/mvp/dev-department/review-gate.md`
 
 ## Operating Rules
 

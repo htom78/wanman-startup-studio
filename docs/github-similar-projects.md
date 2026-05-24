@@ -29,6 +29,7 @@ Our clearest differentiation is executable stage gating: Idea evidence must pass
 
 ## Lower-Similarity Adjacent Projects
 
+- [generalaction/emdash](https://github.com/generalaction/emdash): desktop agentic development environment for running multiple coding agents in isolated git worktrees. Strategically important as a possible execution layer for Dev Department, but not a replacement for startup lifecycle gates.
 - [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT): multi-agent "software company" framework. Relevant to agent orchestration, but not founder stage-gate workflow.
 - [hivementality-ai/hivemind](https://github.com/hivementality-ai/hivemind): self-hosted multi-agent team platform. Relevant infrastructure, not startup validation product.
 - [builderz-labs/mission-control](https://github.com/builderz-labs/mission-control): self-hosted AI agent orchestration platform. Similar operating-control language, but much broader and not startup-specific.
@@ -75,4 +76,3 @@ Better positioning:
 2. Add a `--json` report option to `validate-stage.mjs` for agent integration.
 3. Add a `Decision: PIVOT` demo run so we visibly support non-build outcomes.
 4. Keep the main wedge: evidence-first stage gates before building.
-

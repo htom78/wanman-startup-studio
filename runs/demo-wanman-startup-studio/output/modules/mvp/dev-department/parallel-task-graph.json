@@ -1,0 +1,34 @@
+{
+  "objective": "Build the approved local MVP as a reliable stage-gated operating system with optional Dev Department planning.",
+  "lanes": [
+    {
+      "id": "foundation",
+      "agent": "dev-foundation",
+      "dependsOn": [],
+      "scope": ["scripts", "package.json", "stage validation contracts"],
+      "deliverables": ["add-dev-department-module.mjs", "validate-stage.mjs dev checks"],
+      "verification": ["node --check scripts/add-dev-department-module.mjs", "node --check scripts/validate-stage.mjs"]
+    },
+    {
+      "id": "module-docs",
+      "agent": "dev-module",
+      "dependsOn": ["foundation"],
+      "scope": ["modules/mvp/dev-department", "system/roles/dev-lead.md"],
+      "deliverables": ["module README", "module.json", "templates", "dev lead role pack"],
+      "verification": ["node scripts/validate-stage.mjs runs/demo-wanman-startup-studio dev"]
+    },
+    {
+      "id": "qa",
+      "agent": "dev-qa",
+      "dependsOn": ["foundation"],
+      "scope": ["demo run outputs", "validation behavior"],
+      "deliverables": ["completed demo Dev Department artifacts", "test confirmation"],
+      "verification": ["npm test"]
+    }
+  ],
+  "integration": {
+    "owner": "dev-integrator",
+    "mergeOrder": ["foundation", "module-docs", "qa"],
+    "requiredChecks": ["node --check scripts/add-dev-department-module.mjs", "node scripts/validate-stage.mjs runs/demo-wanman-startup-studio dev", "npm test"]
+  }
+}
