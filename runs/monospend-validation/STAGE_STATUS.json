@@ -1,0 +1,37 @@
+{
+  "runId": "monospend-validation",
+  "name": "MonoSpend",
+  "createdAt": "2026-05-24T15:45:27.074Z",
+  "status": "idea_created",
+  "stages": {
+    "idea": {
+      "status": "created",
+      "requiredFiles": [
+        "output/idea/problem-hypothesis.md",
+        "output/idea/customer-discovery-plan.md",
+        "output/idea/competitor-threat-map.md",
+        "output/idea/disconfirming-evidence.md",
+        "output/idea/solution-concept.md",
+        "output/idea/source-index.md",
+        "output/idea/gate-decision.md"
+      ]
+    },
+    "mvp": {
+      "status": "blocked_until_idea_gate",
+      "requiredFiles": []
+    }
+  },
+  "updatedAt": "2026-05-24T15:46:45.335Z",
+  "modules": {
+    "product-research": {
+      "stage": "idea",
+      "status": "created",
+      "requiredFiles": [
+        "output/modules/idea/product-research/competitor-map.md",
+        "output/modules/idea/product-research/source-index.md",
+        "output/modules/idea/product-research/positioning-notes.md",
+        "output/modules/idea/product-research/landing-page-experiment.md"
+      ]
+    }
+  }
+}

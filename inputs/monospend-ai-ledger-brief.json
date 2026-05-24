@@ -1,0 +1,50 @@
+{
+  "name": "MonoSpend AI Ledger",
+  "slug": "monospend-ai-ledger",
+  "idea": "A personal finance app where users capture spending by voice, receipt photo, or typed notes. An AI module extracts amount, date, merchant, category, and context, then writes a clean editable line into a private notepad-style ledger that users can read, correct, search, export, and calculate from.",
+  "founderContext": "A pivot from MonoSpend's original live-math notepad concept. The new shape uses AI to remove manual entry friction while preserving the differentiator: an owned, editable text ledger rather than a black-box transaction database.",
+  "targetCustomers": [
+    "people who dislike bank-connected finance apps but still want faster expense capture",
+    "users who currently forget to log small purchases because typing is too much work",
+    "privacy-conscious manual trackers who want voice/photo capture without losing control of their data",
+    "note-taking and spreadsheet users who want AI to clean messy spending inputs into readable ledger lines"
+  ],
+  "region": "global, English-first",
+  "startupStage": "idea",
+  "hypotheses": [
+    "Voice and receipt photo capture solve the biggest weakness of notepad-style expense tracking: manual entry friction.",
+    "The ledger should remain human-readable and editable so users trust what AI recorded.",
+    "AI expense trackers are crowded, so MonoSpend must lead with owned notepad ledger rather than generic AI finance automation.",
+    "A tiny validation MVP can test whether users prefer AI-generated ledger text over a conventional transaction list."
+  ],
+  "knownAlternatives": [
+    "Papirer",
+    "HeyJerni",
+    "Duly AI",
+    "Qaizo",
+    "Costline",
+    "Receeto",
+    "SmartWalt",
+    "Spendspace",
+    "Dengii",
+    "MonAi",
+    "SPENDI",
+    "hledger",
+    "Beancount",
+    "manual notes",
+    "spreadsheets"
+  ],
+  "mustAnswer": [
+    "Does AI capture plus editable notepad ledger create a stronger wedge than live math alone?",
+    "Is this differentiated from AI expense trackers that already support voice and receipt scanning?",
+    "What privacy promise is credible if AI processing may use cloud models early?",
+    "What is the smallest MVP that validates the ledger ownership thesis?"
+  ],
+  "constraints": {
+    "sourcePolicy": "Use MonoSpend site and current AI expense tracker competitor pages. Mark unsupported claims as needs verification.",
+    "stageGatePolicy": "Allow only a narrow validation MVP; do not recommend a full finance app, bank sync, AI advisor, or cloud sync yet.",
+    "privacyFirst": true,
+    "aiOutputPolicy": "AI extraction must produce structured fields plus a human-readable ledger line. Users must confirm or edit before save."
+  }
+}
+

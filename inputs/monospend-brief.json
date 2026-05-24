@@ -1,0 +1,46 @@
+{
+  "name": "MonoSpend",
+  "slug": "monospend",
+  "idea": "A private offline personal finance app positioned as a notepad that does your budget. Users type expenses, income, variables, and math like notes; the app parses amounts, categories, budgets, and calculations in real time without accounts, ads, tracking, or cloud sync by default.",
+  "founderContext": "A previously considered personal finance app idea that now has a landing page at https://monospend.app/ and should be validated through the stage-gated startup workflow.",
+  "targetCustomers": [
+    "people who currently track spending in notes, spreadsheets, or plain text",
+    "privacy-conscious users who reject bank-connected finance apps",
+    "technical or semi-technical budgeters who like text input and simple math",
+    "users who want manual expense tracking but hate forms and dropdowns"
+  ],
+  "region": "global, English-first",
+  "startupStage": "idea",
+  "hypotheses": [
+    "A notepad-like expense tracker reduces friction for people who already think in notes.",
+    "Offline privacy and no tracking are trust signals, but not enough differentiation by themselves.",
+    "Live variables and inline math can separate MonoSpend from generic manual expense trackers.",
+    "A one-time $4.99 Pro purchase may appeal to privacy-conscious users tired of subscriptions."
+  ],
+  "knownAlternatives": [
+    "Stroberi",
+    "Expense Trail",
+    "BudgetVault",
+    "Dengii",
+    "MonAi",
+    "SPENDI",
+    "BudgetNote",
+    "hledger",
+    "Beancount",
+    "manual notes",
+    "spreadsheets"
+  ],
+  "mustAnswer": [
+    "Is privacy-first offline expense tracking already too crowded to be a useful wedge?",
+    "Is the notepad/live-math interaction a strong enough differentiator?",
+    "Who is the first narrow customer segment?",
+    "What evidence should decide ALLOW_MVP, PIVOT, or BLOCK?"
+  ],
+  "constraints": {
+    "sourcePolicy": "Use MonoSpend website and reputable competitor pages. Mark unsupported claims as needs verification.",
+    "stageGatePolicy": "Do not recommend building more product surface until customer discovery validates the notepad-first wedge.",
+    "noBackend": true,
+    "privacyFirst": true
+  }
+}
+
