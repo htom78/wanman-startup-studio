@@ -26,3 +26,21 @@ The playbook's central operating shift is that founders gain leverage from AI co
 
 `ai-product-research-studio` fits naturally as a module inside Idea Stage. `wanman-startup-studio` is the parent system that decides when research becomes MVP work.
 
+## Product Research Module
+
+The previous standalone `ai-product-research-studio` workflow is now represented by `modules/idea/product-research`.
+
+What moved into the parent system:
+
+- Competitor map discipline.
+- Source index and `needs verification` policy.
+- ICP, JTBD, category, and differentiation notes.
+- Landing page work as a smoke-test experiment plan.
+
+What deliberately did not move:
+
+- The old project's full landing page prototype as a required artifact.
+- Vendor patches and wanman runtime experiments.
+- Any assumption that research output alone approves MVP work.
+
+The Idea Gate remains the authority. Product research supplies evidence; it does not promote the startup by itself.

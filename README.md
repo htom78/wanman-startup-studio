@@ -20,6 +20,7 @@
 - `scripts/promote-stage.mjs`：Idea Gate 通过后生成 MVP Gate 工作区。
 - `system/roles/`：多智能体角色工作包。
 - `system/stage-gates/`：阶段门控标准。
+- `modules/`：可选阶段模块，例如 `idea/product-research`。
 - `runs/`：每次 startup run 的独立目录。
 - `docs/playbook-mapping.md`：Founder Playbook 到系统设计的映射。
 
@@ -49,6 +50,13 @@ node scripts/validate-stage.mjs runs/<run-id> mvp
 npm test
 ```
 
+挂载产品研究模块：
+
+```bash
+node scripts/add-product-research-module.mjs runs/<run-id>
+node scripts/validate-stage.mjs runs/<run-id> product-research
+```
+
 ## 阶段门控
 
 Idea Gate 只有三个合法结论：
@@ -66,4 +74,3 @@ MVP Gate 只有三个合法结论：
 ## 可选 Wanman 自动化
 
 `AGENT.md` 和 `agents.json` 提供 wanman sharedWorkspace 的协作约束。实际使用时仍以 `scripts/` 的稳定流程为验收标准；wanman 只是可选执行层。
-

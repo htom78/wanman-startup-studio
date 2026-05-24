@@ -1,0 +1,14 @@
+{
+  "name": "product-research",
+  "stage": "idea",
+  "sourceProject": "../ai-product-research-studio",
+  "purpose": "Deepen the Idea Gate with competitor research, positioning notes, and a landing-page smoke-test plan.",
+  "requiredFiles": [
+    "output/modules/idea/product-research/competitor-map.md",
+    "output/modules/idea/product-research/source-index.md",
+    "output/modules/idea/product-research/positioning-notes.md",
+    "output/modules/idea/product-research/landing-page-experiment.md"
+  ],
+  "validator": "node scripts/validate-stage.mjs <run-dir> product-research"
+}
+

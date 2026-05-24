@@ -16,14 +16,21 @@ node scripts/new-startup-run.mjs inputs/startup-brief.example.json
 node scripts/validate-stage.mjs runs/<run-id> idea
 ```
 
-5. Promote only if the Idea Gate decision is `Decision: ALLOW_MVP`:
+5. Optional: attach the product research module when the Idea Gate needs deeper competitor, positioning, or landing-page smoke-test evidence:
+
+```bash
+node scripts/add-product-research-module.mjs runs/<run-id>
+node scripts/validate-stage.mjs runs/<run-id> product-research
+```
+
+6. Promote only if the Idea Gate decision is `Decision: ALLOW_MVP`:
 
 ```bash
 node scripts/promote-stage.mjs runs/<run-id>
 ```
 
-6. Complete MVP Gate files in `runs/<run-id>/output/mvp/`.
-7. Validate the complete run:
+7. Complete MVP Gate files in `runs/<run-id>/output/mvp/`.
+8. Validate the complete run:
 
 ```bash
 node scripts/validate-stage.mjs runs/<run-id> all
@@ -50,10 +57,16 @@ MVP Gate:
 - `output/mvp/gate-decision.md`
 - `output/final-summary.md`
 
+Product Research module:
+
+- `output/modules/idea/product-research/competitor-map.md`
+- `output/modules/idea/product-research/source-index.md`
+- `output/modules/idea/product-research/positioning-notes.md`
+- `output/modules/idea/product-research/landing-page-experiment.md`
+
 ## Operating Rules
 
 - The system optimizes for good founder judgement, not high activity.
 - Every gate decision must name evidence, risks, and next action.
 - Claims must be tagged as fact, inference, assumption, or `needs verification`.
 - Agent work is useful only when it leaves durable artifacts.
-

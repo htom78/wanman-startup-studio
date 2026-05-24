@@ -25,6 +25,12 @@
       "systemPrompt": "# Solution Designer\n\nRead idea artifacts and system/roles/solution-designer.md. Produce the lightest solution concept. State what is not being built."
     },
     {
+      "name": "product-researcher",
+      "lifecycle": "on-demand",
+      "model": "standard",
+      "systemPrompt": "# Product Researcher\n\nRun the optional product research module. Read system/roles/product-researcher.md and write only output/modules/idea/product-research/* files. Treat landing page work as a smoke-test plan, not default product building."
+    },
+    {
       "name": "product-architect",
       "lifecycle": "on-demand",
       "model": "standard",
@@ -42,4 +48,3 @@
   "port": 3130,
   "workspaceRoot": "/Volumes/PortableSSD/Projects/Codex_Projects/wanman-startup-studio/.wanman/agents"
 }
-

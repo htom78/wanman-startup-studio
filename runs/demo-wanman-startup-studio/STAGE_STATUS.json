@@ -28,5 +28,17 @@
       ]
     }
   },
-  "updatedAt": "2026-05-24T14:53:00.898Z"
+  "updatedAt": "2026-05-24T15:04:52.179Z",
+  "modules": {
+    "product-research": {
+      "stage": "idea",
+      "status": "created",
+      "requiredFiles": [
+        "output/modules/idea/product-research/competitor-map.md",
+        "output/modules/idea/product-research/source-index.md",
+        "output/modules/idea/product-research/positioning-notes.md",
+        "output/modules/idea/product-research/landing-page-experiment.md"
+      ]
+    }
+  }
 }

@@ -21,6 +21,13 @@ const MVP_REQUIRED = [
   ["output/final-summary.md", 500]
 ];
 
+const PRODUCT_RESEARCH_REQUIRED = [
+  ["output/modules/idea/product-research/competitor-map.md", 800],
+  ["output/modules/idea/product-research/source-index.md", 500],
+  ["output/modules/idea/product-research/positioning-notes.md", 650],
+  ["output/modules/idea/product-research/landing-page-experiment.md", 550]
+];
+
 function usage() {
   console.error("Usage: node scripts/validate-stage.mjs <run-dir> [idea|mvp|all]");
   process.exit(2);
@@ -143,9 +150,37 @@ function validateMvp(root, failures) {
   requireSections(failures, files.summary, summary, ["Recommendation", "Stage status", "Next actions"]);
 }
 
+function validateProductResearch(root, failures) {
+  validateRequired(root, PRODUCT_RESEARCH_REQUIRED, failures);
+
+  const files = {
+    competitor: "output/modules/idea/product-research/competitor-map.md",
+    source: "output/modules/idea/product-research/source-index.md",
+    positioning: "output/modules/idea/product-research/positioning-notes.md",
+    landing: "output/modules/idea/product-research/landing-page-experiment.md"
+  };
+
+  for (const relative of Object.values(files)) {
+    if (!fs.existsSync(path.join(root, relative))) return;
+  }
+
+  const competitor = read(path.join(root, files.competitor));
+  requireSections(failures, files.competitor, competitor, ["Category map", "Direct competitors", "Adjacent alternatives", "Manual alternatives", "Opportunity gaps", "Risks"]);
+
+  const source = read(path.join(root, files.source));
+  requireRegex(failures, files.source, source, /https?:\/\//, "must include URLs");
+  requireRegex(failures, files.source, source, /needs verification/i, "must include needs verification handling");
+
+  const positioning = read(path.join(root, files.positioning));
+  requireSections(failures, files.positioning, positioning, ["ICP", "JTBD", "Category", "One-line", "Differentiation", "Not-for"]);
+
+  const landing = read(path.join(root, files.landing));
+  requireSections(failures, files.landing, landing, ["First viewport", "CTA", "Smoke test", "Claims", "Do not build"]);
+}
+
 const runDir = process.argv[2];
 const stage = process.argv[3] || "idea";
-if (!runDir || !["idea", "mvp", "all"].includes(stage)) usage();
+if (!runDir || !["idea", "mvp", "product-research", "all"].includes(stage)) usage();
 
 const root = path.resolve(process.cwd(), runDir);
 const failures = [];
@@ -155,6 +190,10 @@ if (!fs.existsSync(root)) {
 } else {
   if (stage === "idea" || stage === "all") validateIdea(root, failures);
   if (stage === "mvp" || stage === "all") validateMvp(root, failures);
+  const productResearchDir = path.join(root, "output/modules/idea/product-research");
+  if (stage === "product-research" || (stage === "all" && fs.existsSync(productResearchDir))) {
+    validateProductResearch(root, failures);
+  }
 }
 
 if (failures.length) {

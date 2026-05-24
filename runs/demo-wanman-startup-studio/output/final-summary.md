@@ -20,6 +20,10 @@ Proceed with `wanman-startup-studio` as the parent system and treat `ai-product-
 - Solution concept
 - Source index
 - Idea Gate decision
+- Product research competitor map
+- Product research source index
+- Product research positioning notes
+- Landing page experiment plan
 - MVP scope
 - Architecture brief
 - Measurement framework
