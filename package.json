@@ -1,0 +1,11 @@
+{
+  "name": "wanman-startup-studio",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stage-gated AI-native startup operating system for Idea Stage through MVP Gate.",
+  "scripts": {
+    "check": "node --check scripts/new-startup-run.mjs && node --check scripts/promote-stage.mjs && node --check scripts/validate-stage.mjs",
+    "test": "npm run check && node scripts/validate-stage.mjs runs/demo-wanman-startup-studio all"
+  }
+}
+

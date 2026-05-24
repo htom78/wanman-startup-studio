@@ -1,0 +1,38 @@
+{
+  "name": "Wanman Startup Studio",
+  "slug": "wanman-startup-studio",
+  "idea": "A stage-gated multi-agent operating system that helps AI-native founders validate startup ideas, decide when to build, and prepare a tightly scoped MVP without confusing prototype creation for customer validation.",
+  "founderContext": "Solo technical founder building internal tools and AI workflows for early-stage teams.",
+  "targetCustomers": [
+    "solo technical founders",
+    "micro startup teams before seed funding",
+    "product builders validating new AI products"
+  ],
+  "region": "global, English-first outputs with Chinese operator notes",
+  "startupStage": "idea",
+  "hypotheses": [
+    "AI-native founders can build too quickly and need a gate that forces validation before MVP work.",
+    "A local file-based agent workflow is more trustworthy than a black-box startup generator.",
+    "The first paid use case is repeatable idea validation plus MVP scope control."
+  ],
+  "knownAlternatives": [
+    "manual founder notebooks",
+    "ChatGPT project chats",
+    "Notion startup templates",
+    "Mixo",
+    "ValidatorAI",
+    "YC Startup School resources"
+  ],
+  "mustAnswer": [
+    "Is the problem frequent and painful enough for a founder workflow product?",
+    "Which customer segment should be interviewed first?",
+    "What evidence would block or pivot the idea?",
+    "What is the smallest MVP scope if the Idea Gate passes?"
+  ],
+  "constraints": {
+    "noBackend": true,
+    "noPaidAPIs": true,
+    "sourcePolicy": "Use local evidence or reputable URLs for factual claims. Mark unsupported details as needs verification.",
+    "stageGatePolicy": "Do not build MVP assets before Idea Gate approval."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "runId": "demo-wanman-startup-studio",
+  "name": "Wanman Startup Studio",
+  "createdAt": "2026-05-24T14:51:41.889Z",
+  "status": "mvp_created",
+  "stages": {
+    "idea": {
+      "status": "passed",
+      "requiredFiles": [
+        "output/idea/problem-hypothesis.md",
+        "output/idea/customer-discovery-plan.md",
+        "output/idea/competitor-threat-map.md",
+        "output/idea/disconfirming-evidence.md",
+        "output/idea/solution-concept.md",
+        "output/idea/source-index.md",
+        "output/idea/gate-decision.md"
+      ]
+    },
+    "mvp": {
+      "status": "created",
+      "requiredFiles": [
+        "output/mvp/mvp-scope.md",
+        "output/mvp/architecture-brief.md",
+        "output/mvp/measurement-framework.md",
+        "output/mvp/security-review.md",
+        "output/mvp/gate-decision.md",
+        "output/final-summary.md"
+      ]
+    }
+  },
+  "updatedAt": "2026-05-24T14:53:00.898Z"
+}

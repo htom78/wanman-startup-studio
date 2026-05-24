@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Startup Brief",
+  "type": "object",
+  "required": [
+    "name",
+    "idea",
+    "targetCustomers",
+    "hypotheses",
+    "mustAnswer"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 3
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "idea": {
+      "type": "string",
+      "minLength": 40
+    },
+    "founderContext": {
+      "type": "string"
+    },
+    "targetCustomers": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "region": {
+      "type": "string"
+    },
+    "startupStage": {
+      "type": "string",
+      "enum": [
+        "idea",
+        "mvp",
+        "launch",
+        "scale"
+      ]
+    },
+    "hypotheses": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "knownAlternatives": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mustAnswer": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "constraints": {
+      "type": "object"
+    }
+  }
+}
+
