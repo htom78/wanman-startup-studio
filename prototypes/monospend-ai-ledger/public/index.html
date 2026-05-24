@@ -8,6 +8,14 @@
   </head>
   <body>
     <main class="app-shell" aria-label="MonoSpend AI ledger">
+      <aside class="notebook-rail" aria-label="Notebook list">
+        <div class="rail-heading">
+          <span>Notebooks</span>
+          <button id="newNotebook" type="button" aria-label="Create notebook">+</button>
+        </div>
+        <div class="notebook-list" id="notebookList"></div>
+      </aside>
+
       <section class="ledger-window" aria-label="Live money ledger">
         <header class="window-bar">
           <div class="traffic-lights" aria-hidden="true">
@@ -15,11 +23,16 @@
             <span class="yellow"></span>
             <span class="green"></span>
           </div>
-          <p id="monthLabel" class="month-label">May 2026</p>
+          <input id="notebookTitle" class="notebook-title" value="April 2026" aria-label="Notebook title">
           <div class="provider-chip" id="providerBadge">local</div>
         </header>
 
         <section class="ledger-body">
+          <div class="column-head" aria-hidden="true">
+            <span>input</span>
+            <span>result</span>
+          </div>
+
           <section class="ledger-block" aria-labelledby="incomeHeading">
             <div class="block-heading" id="incomeHeading">Income</div>
             <div class="code-group income-group" id="incomeRows"></div>
