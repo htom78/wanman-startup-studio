@@ -7,157 +7,81 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <div class="app-frame">
-      <aside class="rail" aria-label="App navigation">
-        <div class="brand-lockup">
-          <div class="brand-mark" aria-hidden="true">M</div>
-          <div>
-            <p>MonoSpend</p>
-            <span>AI Ledger</span>
+    <main class="app-shell" aria-label="MonoSpend AI ledger">
+      <section class="ledger-window" aria-label="Live money ledger">
+        <header class="window-bar">
+          <div class="traffic-lights" aria-hidden="true">
+            <span class="red"></span>
+            <span class="yellow"></span>
+            <span class="green"></span>
           </div>
-        </div>
-
-        <nav class="rail-nav" aria-label="Sections">
-          <a href="#capture" class="active">Capture</a>
-          <a href="#review">Review</a>
-          <a href="#ledger">Ledger</a>
-        </nav>
-
-        <div class="rail-card">
-          <span>Mode</span>
-          <strong id="storageStatus">Local ledger</strong>
-          <p>Entries are stored in this browser until exported.</p>
-        </div>
-      </aside>
-
-      <main class="app-main">
-        <header class="topbar">
-          <div>
-            <p class="eyebrow">Validation MVP</p>
-            <h1>Turn messy spending inputs into a ledger you own.</h1>
-          </div>
-          <div class="top-actions" aria-label="Prototype status">
-            <span class="status-pill">No bank sync</span>
-            <span class="status-pill">Editable before save</span>
-            <span class="status-pill">Export ready</span>
-          </div>
+          <p id="monthLabel" class="month-label">May 2026</p>
+          <div class="provider-chip" id="providerBadge">local</div>
         </header>
 
-        <section class="metrics-strip" aria-label="Ledger summary">
-          <article>
-            <span>Saved spend</span>
-            <strong id="totalAmount">USD 0.00</strong>
-          </article>
-          <article>
-            <span>Entries</span>
-            <strong id="entryCount">0 entries</strong>
-          </article>
-          <article>
-            <span>Top category</span>
-            <strong id="topCategory">none</strong>
-          </article>
-        </section>
-
-        <section class="workspace" aria-label="MonoSpend AI ledger workspace">
-          <section class="surface capture-surface" id="capture" aria-label="Capture expense">
-            <div class="surface-head">
-              <div>
-                <p class="section-kicker">Step 1</p>
-                <h2>Capture</h2>
-              </div>
-              <div class="mode-tabs" role="tablist" aria-label="Input mode">
-                <button class="mode-tab active" type="button" data-mode="text">Text</button>
-                <button class="mode-tab" type="button" data-mode="voice">Voice</button>
-                <button class="mode-tab" type="button" data-mode="photo">Photo</button>
-              </div>
-            </div>
-
-            <div class="mode-pane active" data-pane="text">
-              <label for="textInput">Money note</label>
-              <textarea id="textInput" spellcheck="false">lunch ramen at Ramen House $15.50 today</textarea>
-            </div>
-
-            <div class="mode-pane" data-pane="voice">
-              <label for="voiceInput">Voice transcript</label>
-              <textarea id="voiceInput" spellcheck="false" placeholder="Press Record or type a transcript"></textarea>
-              <div class="button-row">
-                <button class="secondary" type="button" id="recordButton">Record</button>
-                <span class="hint" id="voiceStatus">Browser speech support varies.</span>
-              </div>
-            </div>
-
-            <div class="mode-pane" data-pane="photo">
-              <label for="photoInput">Receipt image</label>
-              <input id="photoInput" type="file" accept="image/*">
-              <img id="receiptPreview" class="receipt-preview" alt="Receipt preview">
-              <label for="receiptText">Receipt notes</label>
-              <textarea id="receiptText" spellcheck="false" placeholder="Local mode: paste receipt text here. OpenAI mode can read the image."></textarea>
-            </div>
-
-            <div class="button-row action-row">
-              <button class="primary" type="button" id="extractButton">Extract ledger draft</button>
-              <button class="ghost" type="button" id="sampleButton">Use sample</button>
-            </div>
-            <p class="message" id="message" role="status"></p>
+        <section class="ledger-body">
+          <section class="ledger-block" aria-labelledby="incomeHeading">
+            <div class="block-heading" id="incomeHeading">Income</div>
+            <div class="code-group income-group" id="incomeRows"></div>
           </section>
 
-          <section class="surface review-surface" id="review" aria-label="Review extracted ledger entry">
-            <div class="surface-head">
-              <div>
-                <p class="section-kicker">Step 2</p>
-                <h2>Review</h2>
-              </div>
-              <span id="providerBadge" class="provider-badge">local</span>
-            </div>
-
-            <form class="entry-grid" id="entryForm">
-              <label>Date<input name="date" id="dateField" autocomplete="off"></label>
-              <label>Amount<input name="amount" id="amountField" inputmode="decimal" autocomplete="off"></label>
-              <label>Currency<input name="currency" id="currencyField" autocomplete="off"></label>
-              <label>Merchant<input name="merchant" id="merchantField" autocomplete="off"></label>
-              <label>Category
-                <select name="category" id="categoryField">
-                  <option>food</option>
-                  <option>transport</option>
-                  <option>housing</option>
-                  <option>shopping</option>
-                  <option>health</option>
-                  <option>income</option>
-                  <option>other</option>
-                </select>
-              </label>
-              <label>Confidence<input name="confidence" id="confidenceField" inputmode="decimal" autocomplete="off"></label>
-            </form>
-
-            <label for="ledgerLine">Ledger line</label>
-            <textarea id="ledgerLine" class="ledger-line" spellcheck="false" placeholder="AI extraction appears here. Edit before saving."></textarea>
-
-            <div class="button-row action-row">
-              <button class="primary" type="button" id="saveButton">Save to ledger</button>
-              <button class="ghost" type="button" id="clearDraftButton">Clear draft</button>
-            </div>
+          <section class="ledger-block" aria-labelledby="spendHeading">
+            <div class="block-heading sr-only" id="spendHeading">Spending</div>
+            <div class="code-group spend-group" id="expenseRows"></div>
           </section>
 
-          <section class="surface ledger-surface" id="ledger" aria-label="Ledger">
-            <div class="surface-head">
-              <div>
-                <p class="section-kicker">Step 3</p>
-                <h2>Notepad ledger</h2>
-              </div>
-            </div>
-
-            <ol class="ledger-list" id="ledgerList"></ol>
-
-            <div class="button-row export-row">
-              <button class="secondary" type="button" id="exportMarkdown">Export Markdown</button>
-              <button class="secondary" type="button" id="exportJson">Export JSONL</button>
-              <button class="secondary" type="button" id="exportCsv">Export CSV</button>
-              <button class="danger" type="button" id="clearLedger">Clear</button>
-            </div>
+          <section class="ledger-block" aria-labelledby="calculatedHeading">
+            <div class="rule-line"></div>
+            <div class="block-heading" id="calculatedHeading">Calculated</div>
+            <div class="code-group calculated-group" id="calculatedRows"></div>
           </section>
         </section>
-      </main>
-    </div>
+
+        <footer class="command-dock" aria-label="AI capture command">
+          <div class="command-line">
+            <input
+              id="commandInput"
+              type="text"
+              spellcheck="false"
+              autocomplete="off"
+              value="dinner sushi 45.90"
+              aria-label="Type a spending note"
+            >
+            <button id="submitCommand" type="button" aria-label="Add ledger line">Add</button>
+          </div>
+
+          <div class="dock-tools" aria-label="Capture and export tools">
+            <div class="mode-switch" role="tablist" aria-label="Input mode">
+              <button class="mode-tab active" type="button" data-mode="text">Text</button>
+              <button class="mode-tab" type="button" data-mode="voice">Voice</button>
+              <button class="mode-tab" type="button" data-mode="photo">Photo</button>
+            </div>
+            <input id="photoInput" type="file" accept="image/*" aria-label="Upload receipt image">
+            <button class="tool-button" type="button" id="recordButton">Record</button>
+            <button class="tool-button" type="button" id="sampleButton">Sample</button>
+            <button class="tool-button" type="button" id="exportMarkdown">MD</button>
+            <button class="tool-button" type="button" id="exportJson">JSON</button>
+            <button class="tool-button" type="button" id="exportCsv">CSV</button>
+            <button class="tool-button danger" type="button" id="clearLedger">Clear</button>
+          </div>
+
+          <p class="status-line" id="message" role="status">Type a money note and press Enter.</p>
+          <p class="status-line secondary" id="voiceStatus">Voice capture uses browser speech support when available.</p>
+          <img id="receiptPreview" class="receipt-preview" alt="Receipt preview">
+        </footer>
+      </section>
+
+      <aside class="summary-panel sr-only" aria-label="Ledger summary">
+        <dl>
+          <dt>Saved spend</dt>
+          <dd id="totalAmount">$0.00</dd>
+          <dt>Entries</dt>
+          <dd id="entryCount">0 entries</dd>
+          <dt>Top category</dt>
+          <dd id="topCategory">none</dd>
+        </dl>
+      </aside>
+    </main>
 
     <script src="app.js"></script>
   </body>
