@@ -7,8 +7,11 @@
     "type": "git",
     "url": "https://github.com/htom78/wanman-startup-studio.git"
   },
+  "bin": {
+    "startup-studio": "scripts/cli.mjs"
+  },
   "scripts": {
-    "check": "node --check scripts/new-startup-run.mjs && node --check scripts/promote-stage.mjs && node --check scripts/add-product-research-module.mjs && node --check scripts/add-dev-department-module.mjs && node --check scripts/validate-stage.mjs && node --check prototypes/monospend-ai-ledger/server.mjs && node --check prototypes/monospend-ai-ledger/lib/notebook.mjs && node --check prototypes/monospend-ai-ledger/lib/notebook-store.mjs",
+    "check": "node --check scripts/cli.mjs && node --check scripts/new-startup-run.mjs && node --check scripts/promote-stage.mjs && node --check scripts/add-product-research-module.mjs && node --check scripts/add-dev-department-module.mjs && node --check scripts/validate-stage.mjs && node --check prototypes/monospend-ai-ledger/server.mjs && node --check prototypes/monospend-ai-ledger/lib/notebook.mjs && node --check prototypes/monospend-ai-ledger/lib/notebook-store.mjs",
     "monospend:prototype": "node prototypes/monospend-ai-ledger/server.mjs",
     "test:monospend": "node prototypes/monospend-ai-ledger/tests/extractor.test.mjs",
     "test:monospend:notebook": "node prototypes/monospend-ai-ledger/tests/notebook.test.mjs",

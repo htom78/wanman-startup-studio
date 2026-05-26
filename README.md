@@ -67,6 +67,29 @@ node scripts/add-dev-department-module.mjs runs/<run-id>
 node scripts/validate-stage.mjs runs/<run-id> dev
 ```
 
+## 全局安装
+
+本地开发时可以用 `npm link` 安装一个全局命令，这样在其他项目目录里也能调用同一套 startup-studio 工作流：
+
+```bash
+cd /Volumes/PortableSSD/Projects/Codex_Projects/wanman-startup-studio
+npm link
+startup-studio help
+```
+
+常用命令：
+
+```bash
+startup-studio new <input.json>
+startup-studio validate <run-dir> idea
+startup-studio promote <run-dir>
+startup-studio add product-research <run-dir>
+startup-studio add dev <run-dir>
+startup-studio root
+```
+
+`startup-studio` 会使用当前安装的 studio 仓库作为系统根目录；`<input.json>` 和 `<run-dir>` 可以写成调用目录里的相对路径。
+
 ## 阶段门控
 
 Idea Gate 只有三个合法结论：
