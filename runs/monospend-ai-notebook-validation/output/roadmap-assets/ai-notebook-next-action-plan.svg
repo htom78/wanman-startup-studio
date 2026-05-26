@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+  <title id="title">AI 记账簿后续行动规划</title>
+  <desc id="desc">基于 wanman-startup-studio 验证结论的 MonoSpend AI Notebook 后续行动路线图</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="paper" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffdf7"/>
+      <stop offset="100%" stop-color="#f4fbf7"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#12745f"/>
+      <stop offset="100%" stop-color="#35a47c"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#2f73ff"/>
+      <stop offset="100%" stop-color="#64a6ff"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#dfe8e2" stroke-width="1" opacity="0.72"/>
+    </pattern>
+    <style>
+      .bg { fill: url(#paper); }
+      .grid { fill: url(#grid); opacity: 0.75; }
+      .title { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", Arial, sans-serif; font-size: 58px; font-weight: 850; fill: #101418; letter-spacing: 0; }
+      .subtitle { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif; font-size: 28px; font-weight: 600; fill: #55615c; }
+      .pill { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; font-size: 24px; font-weight: 800; fill: #12745f; }
+      .card-title { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; font-size: 30px; font-weight: 850; fill: #101418; }
+      .card-kicker { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; font-size: 18px; font-weight: 850; fill: #2f73ff; letter-spacing: 1.2px; }
+      .body { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; font-size: 23px; font-weight: 620; fill: #2c3431; }
+      .muted { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; font-size: 20px; font-weight: 600; fill: #68736e; }
+      .mono { font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace; font-size: 24px; font-weight: 720; fill: #17211d; }
+      .mono-small { font-family: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace; font-size: 20px; font-weight: 700; fill: #2f3b36; }
+      .metric { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "PingFang SC", Arial, sans-serif; font-size: 24px; font-weight: 850; fill: #12745f; }
+      .warn { fill: #bb5a31; }
+      .line { stroke: #cbd8d2; stroke-width: 2; }
+      .arrow { stroke: #27866b; stroke-width: 5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrowhead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#27866b"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1800" height="1120"/>
+  <rect class="grid" x="0" y="0" width="1800" height="1120"/>
+  <line x1="92" y1="0" x2="92" y2="1120" stroke="#f0b5ad" stroke-width="2" opacity="0.65"/>
+
+  <g transform="translate(120 78)">
+    <text class="title" x="0" y="0">AI 记账簿后续行动规划</text>
+    <text class="subtitle" x="0" y="46">用 wanman-startup-studio 的阶段门结论推进：从漂亮原型，收口到可验证 MVP</text>
+    <g transform="translate(1154 -42)">
+      <rect x="0" y="0" width="438" height="62" rx="31" fill="#e9f4ef" stroke="#d4e6dd"/>
+      <circle cx="34" cy="31" r="10" fill="#22b56f"/>
+      <text class="pill" x="58" y="40">Gate: ALLOW_MVP / BUILD</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="120" y="190" width="1560" height="774" rx="34" fill="#ffffff" stroke="#dce7e1"/>
+  </g>
+
+  <g transform="translate(160 226)">
+    <text class="card-kicker" x="0" y="0">CURRENT STATE</text>
+    <text class="card-title" x="0" y="44">现在已经成立的产品假设</text>
+    <rect x="0" y="74" width="316" height="600" rx="24" fill="#f7fbf8" stroke="#dce9e2"/>
+    <text class="mono" x="30" y="126">AI Composer = 人话入口</text>
+    <text class="body" x="30" y="178">用户自然输入，系统解析意图，</text>
+    <text class="body" x="30" y="214">再调用传统记账/计算核心。</text>
+    <line class="line" x1="30" y1="246" x2="286" y2="246"/>
+    <text class="body" x="30" y="292">已具备：</text>
+    <text class="muted" x="52" y="340">• 多 Notebook</text>
+    <text class="muted" x="52" y="384">• 左输入 / 右结果</text>
+    <text class="muted" x="52" y="428">• 行可编辑再解析</text>
+    <text class="muted" x="52" y="472">• 计算是用户触发的 note</text>
+    <text class="muted" x="52" y="516">• 本地后端和 JSON 保存</text>
+    <rect x="30" y="546" width="256" height="78" rx="18" fill="#eaf5ef"/>
+    <text class="metric" x="52" y="594">下一步：补信任闭环</text>
+  </g>
+
+  <path class="arrow" d="M 500 548 C 552 548, 560 548, 606 548" marker-end="url(#arrowhead)"/>
+  <path class="arrow" d="M 872 548 C 926 548, 934 548, 982 548" marker-end="url(#arrowhead)"/>
+  <path class="arrow" d="M 1248 548 C 1302 548, 1310 548, 1358 548" marker-end="url(#arrowhead)"/>
+
+  <g transform="translate(600 268)">
+    <rect x="0" y="0" width="286" height="496" rx="26" fill="#fffdfa" stroke="#dce7e1"/>
+    <circle cx="42" cy="48" r="22" fill="url(#green)"/>
+    <text x="42" y="57" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Arial" font-size="24" font-weight="850" fill="#fff">1</text>
+    <text class="card-kicker" x="78" y="40">1-2 DAYS</text>
+    <text class="card-title" x="28" y="100">产品信任闭环</text>
+    <text class="body" x="28" y="156">解决“AI 解析错了”</text>
+    <text class="body" x="28" y="190">和“旧统计对不上”。</text>
+    <line class="line" x1="28" y1="224" x2="258" y2="224"/>
+    <text class="muted" x="28" y="270">• 编辑事实行后重新 Composer</text>
+    <text class="muted" x="28" y="314">• 旧计算备注标注过期</text>
+    <text class="muted" x="28" y="358">• 不自动重算，不偷改历史</text>
+    <text class="muted" x="28" y="402">• 显示 source / confidence</text>
+    <rect x="28" y="430" width="230" height="42" rx="14" fill="#eef6f2"/>
+    <text class="mono-small" x="44" y="458">may be outdated</text>
+  </g>
+
+  <g transform="translate(976 268)">
+    <rect x="0" y="0" width="286" height="496" rx="26" fill="#fffdfa" stroke="#dce7e1"/>
+    <circle cx="42" cy="48" r="22" fill="url(#blue)"/>
+    <text x="42" y="57" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Arial" font-size="24" font-weight="850" fill="#fff">2</text>
+    <text class="card-kicker" x="78" y="40">2-4 DAYS</text>
+    <text class="card-title" x="28" y="100">真实 AI 能力</text>
+    <text class="body" x="28" y="156">把 mock 的智能感</text>
+    <text class="body" x="28" y="190">变成可测试能力。</text>
+    <line class="line" x1="28" y1="224" x2="258" y2="224"/>
+    <text class="muted" x="28" y="270">• OpenAI strict JSON schema</text>
+    <text class="muted" x="28" y="314">• 中文/英文自然输入</text>
+    <text class="muted" x="28" y="358">• 语音先转文本，提交后统一解析</text>
+    <text class="muted" x="28" y="402">• 拍照/收据只做轻量验证</text>
+    <rect x="28" y="430" width="230" height="42" rx="14" fill="#edf4ff"/>
+    <text class="mono-small" x="44" y="458">facts, notes, calc</text>
+  </g>
+
+  <g transform="translate(1352 268)">
+    <rect x="0" y="0" width="286" height="496" rx="26" fill="#fffdfa" stroke="#dce7e1"/>
+    <circle cx="42" cy="48" r="22" fill="url(#green)"/>
+    <text x="42" y="57" text-anchor="middle" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, Arial" font-size="24" font-weight="850" fill="#fff">3</text>
+    <text class="card-kicker" x="78" y="40">1 WEEK</text>
+    <text class="card-title" x="28" y="100">验证留存</text>
+    <text class="body" x="28" y="156">不要用视觉好评判断，</text>
+    <text class="body" x="28" y="190">用一周后的复用判断。</text>
+    <line class="line" x1="28" y1="224" x2="258" y2="224"/>
+    <text class="muted" x="28" y="270">• 5 个 moderated sessions</text>
+    <text class="muted" x="28" y="314">• 5 个 async week tests</text>
+    <text class="muted" x="28" y="358">• 8-12 个真实 prompt</text>
+    <text class="muted" x="28" y="402">• 记录创建/编辑/计算事件</text>
+    <rect x="28" y="430" width="230" height="42" rx="14" fill="#eef6f2"/>
+    <text class="mono-small" x="44" y="458">return within 7 days</text>
+  </g>
+
+  <g transform="translate(160 830)">
+    <rect x="0" y="0" width="1478" height="90" rx="24" fill="#101917"/>
+    <text x="34" y="56" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'PingFang SC', Arial" font-size="27" font-weight="850" fill="#fff">Go / No-Go 判断：</text>
+    <text x="274" y="56" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'PingFang SC', Arial" font-size="24" font-weight="700" fill="#d7f4e8">用户是否愿意反复把钱的事实写进 notebook，并主动用 calculation note 思考问题。</text>
+  </g>
+
+  <g transform="translate(160 998)">
+    <text class="card-kicker" x="0" y="0">DO NOT BUILD YET</text>
+    <text class="muted" x="0" y="38">银行同步、完整账户体系、图表 dashboard、AI 投资建议、原生 app、支付系统。</text>
+    <text class="card-kicker" x="970" y="0">IF PASS</text>
+    <text class="muted" x="970" y="38">再决定新建独立 repo / 产品化部署 / AI Composer SDK 化。</text>
+  </g>
+</svg>

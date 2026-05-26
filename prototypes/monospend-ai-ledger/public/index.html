@@ -3,11 +3,242 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MonoSpend AI Ledger</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>MonoSpend AI Notebook</title>
+    <link rel="stylesheet" href="styles.css?v=ios-intent-1">
   </head>
   <body>
-    <main class="app-shell" aria-label="MonoSpend AI ledger">
+    <section class="ios-mock-shell" aria-label="MonoSpend iOS money notebook mock" data-mode="talk">
+      <article class="iphone-frame" aria-label="iPhone app preview">
+        <div class="phone-screen">
+          <div class="ios-status" aria-label="Phone status">
+            <span>9:41</span>
+            <span>5G&nbsp;&nbsp;82%</span>
+          </div>
+          <div class="dynamic-island" aria-hidden="true"></div>
+
+          <header class="ios-app-header">
+            <button class="ios-icon-button" id="iosNotebookButton" type="button" aria-label="Open notebooks">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <div>
+              <p id="iosNotebookMonth">April 2026</p>
+              <h1 id="iosNotebookTitle">Money notebook</h1>
+            </div>
+            <button class="ios-avatar-button" id="iosPrivacyButton" type="button" aria-label="Privacy status">T</button>
+          </header>
+
+          <div class="ios-panel-backdrop" id="iosPanelBackdrop" hidden></div>
+          <aside class="ios-side-panel" id="iosSidePanel" aria-label="Notebook drawer" aria-hidden="true" data-panel="notebooks">
+            <header class="side-panel-header">
+              <div>
+                <span id="iosPanelEyebrow">Notebooks</span>
+                <strong id="iosPanelTitle">Money notebooks</strong>
+              </div>
+              <div class="side-panel-actions">
+                <button class="side-panel-action" id="iosPanelTutorial" type="button" aria-label="Open tutorial">
+                  <span class="book-glyph" aria-hidden="true"></span>
+                </button>
+                <button class="side-panel-action" id="iosPanelSettings" type="button" aria-label="Open settings">T</button>
+              </div>
+            </header>
+
+            <section class="side-panel-view notebooks-view" aria-label="Notebook list">
+              <div class="side-panel-section-label">
+                <span>Notes</span>
+                <strong id="iosDrawerActiveFolder">General</strong>
+              </div>
+              <div class="side-panel-list" id="iosDrawerNotebookList"></div>
+              <button class="side-panel-create" id="iosDrawerCreateNotebook" type="button">New note</button>
+              <div class="side-panel-section-label folders-label">
+                <span>Folders</span>
+                <strong>Library</strong>
+              </div>
+              <div class="side-panel-list folder-list" id="iosDrawerFolderList"></div>
+              <button class="side-panel-create" id="iosDrawerCreateFolder" type="button">New folder</button>
+            </section>
+
+            <section class="side-panel-view settings-view" aria-label="Settings">
+              <div class="settings-row">
+                <span>AI provider</span>
+                <strong id="iosDrawerProvider">local</strong>
+              </div>
+              <div class="settings-row">
+                <span>Storage</span>
+                <strong>JSON</strong>
+              </div>
+              <div class="settings-row">
+                <span>Line editing</span>
+                <strong>Tap / swipe</strong>
+              </div>
+              <div class="settings-row">
+                <span>Calculation notes</span>
+                <strong>User-triggered</strong>
+              </div>
+              <button class="side-panel-create danger" id="iosDrawerResetDemo" type="button">Reset demo data</button>
+            </section>
+
+            <section class="side-panel-view tutorial-view" aria-label="Tutorial">
+              <div class="tutorial-step">
+                <span>1</span>
+                <div>
+                  <strong>Speak naturally</strong>
+                  <p>Text, voice, or receipt photo can become notebook lines.</p>
+                </div>
+              </div>
+              <div class="tutorial-step">
+                <span>2</span>
+                <div>
+                  <strong>AI separates intent</strong>
+                  <p>Context can stay as a note; money facts become income or expense lines.</p>
+                </div>
+              </div>
+              <div class="tutorial-step">
+                <span>3</span>
+                <div>
+                  <strong>Ask for calculations</strong>
+                  <p>A calculation is saved as its own note when you ask for it.</p>
+                </div>
+              </div>
+              <div class="tutorial-step">
+                <span>4</span>
+                <div>
+                  <strong>Correct the ledger</strong>
+                  <p>Tap to edit a line, or swipe left to delete it.</p>
+                </div>
+              </div>
+            </section>
+          </aside>
+
+          <section class="composer-status-card" id="iosComposerStatus" aria-label="AI composer status" hidden>
+            <div class="composer-status-top">
+              <span class="pill-label">AI Composer</span>
+              <span class="privacy-chip" id="iosPrivacyChip">on-device history</span>
+            </div>
+            <div class="composer-orbit" aria-hidden="true">
+              <span class="orbit-ring"></span>
+              <span class="orbit-scan"></span>
+              <span class="composer-orbit-mic mic-icon"></span>
+            </div>
+            <div class="composer-stage-strip" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="transcript-card">
+              <p class="raw-line" id="iosRawLine">"Lunch was 55 dollars plus 25 percent tip..."</p>
+              <p class="clean-line" id="iosCleanLine">lunch = $55.00 + 25% tip</p>
+            </div>
+          </section>
+
+          <section class="intent-override-sheet" id="iosIntentSheet" aria-label="Correct AI intent" hidden>
+            <div class="intent-sheet-top">
+              <div>
+                <span>Change intent</span>
+                <strong id="iosIntentLineTitle">Selected line</strong>
+              </div>
+              <button class="intent-close" id="iosIntentClose" type="button" aria-label="Close intent options">×</button>
+            </div>
+            <div class="intent-grid">
+              <button type="button" data-action="text-only">Edit text</button>
+              <button type="button" data-intent="note">Note</button>
+              <button type="button" data-intent="expense">Expense</button>
+              <button type="button" data-intent="income">Income</button>
+            </div>
+            <div class="intent-calculation-grid">
+              <button type="button" data-intent="calculation" data-query="totalCost">Calc spend</button>
+              <button type="button" data-intent="calculation" data-query="remaining">Calc left</button>
+              <button type="button" data-intent="calculation" data-query="totalIncome">Calc income</button>
+            </div>
+          </section>
+
+          <section class="notebook-card" aria-label="Notebook lines">
+            <div class="card-header">
+              <span>Notebook lines</span>
+              <strong>Result</strong>
+            </div>
+
+            <div class="ios-ledger-rows" id="iosLedgerRows"></div>
+          </section>
+
+          <footer class="ios-composer-sheet" aria-label="Capture controls">
+            <div class="composer-input">
+              <div class="composer-tools" aria-label="Capture tools">
+                <button class="composer-icon add-icon" id="iosAddButton" type="button" aria-label="Add photo input"></button>
+                <button class="composer-icon mic-icon" id="iosComposerMicButton" type="button" aria-label="Start voice input"></button>
+              </div>
+              <input id="iosComposerInput" type="text" value="dinner sushi 45.90" aria-label="Money note input">
+              <button class="delete-line-button" id="iosDeleteLineButton" type="button" aria-label="Delete selected line" hidden>
+                <span class="trash-glyph" aria-hidden="true"></span>
+              </button>
+              <button class="write-button" id="iosCommitButton" type="button" aria-label="Write money note">
+                <span class="write-glyph" aria-hidden="true"></span>
+              </button>
+            </div>
+            <div class="capture-menu" id="iosCaptureMenu" hidden>
+              <button type="button" data-capture-source="camera">
+                <span class="camera-glyph"></span>
+                <strong>Camera</strong>
+              </button>
+              <button type="button" data-capture-source="library">
+                <span class="library-glyph"></span>
+                <strong>Photo library</strong>
+              </button>
+            </div>
+            <input class="ios-photo-input" id="iosCameraInput" type="file" accept="image/*" capture="environment" aria-label="Take receipt photo">
+            <input class="ios-photo-input" id="iosLibraryInput" type="file" accept="image/*" aria-label="Choose receipt photo">
+          </footer>
+        </div>
+      </article>
+
+      <aside class="validation-panel" aria-label="Product validation controls">
+        <header class="validation-header">
+          <span>Validation</span>
+          <strong id="iosValidationProvider">local</strong>
+        </header>
+
+        <section class="validation-block" aria-label="Notebook switcher">
+          <div class="validation-label">Notes in folder</div>
+          <div class="validation-notebooks" id="iosNotebookList"></div>
+          <button class="validation-action" id="iosCreateNotebook" type="button">New note</button>
+        </section>
+
+        <section class="validation-block" aria-label="Scenario shortcuts">
+          <div class="validation-label">Scenarios</div>
+          <div class="scenario-grid">
+            <button class="scenario-button" type="button" data-ios-mode="talk" data-scenario="Yesterday Uber to the airport was 38.40, and lunch ramen was 15.50">
+              <span>Messy voice</span>
+              <strong>2 notes</strong>
+            </button>
+            <button class="scenario-button" type="button" data-ios-mode="type" data-scenario="ask sam about rent">
+              <span>Remark</span>
+              <strong>no amount</strong>
+            </button>
+            <button class="scenario-button" type="button" data-ios-mode="scan" data-scenario="Ramen House receipt lunch ramen total $15.50">
+              <span>Receipt</span>
+              <strong>expense</strong>
+            </button>
+            <button class="scenario-button" type="button" data-ios-mode="type" data-scenario="freelance invoice paid 800">
+              <span>Income</span>
+              <strong>positive</strong>
+            </button>
+            <button class="scenario-button" type="button" data-ios-mode="type" data-scenario="dinner with maya $92 / 2 people">
+              <span>Split bill</span>
+              <strong>math</strong>
+            </button>
+            <button class="scenario-button" type="button" data-ios-mode="type" data-scenario="calculate remaining">
+              <span>Remaining</span>
+              <strong>note</strong>
+            </button>
+          </div>
+        </section>
+
+        <button class="validation-reset" id="iosResetDemo" type="button">Reset demo data</button>
+      </aside>
+    </section>
+
+    <main class="app-shell desktop-prototype" aria-label="MonoSpend AI notebook">
       <aside class="notebook-rail" aria-label="Notebook list">
         <div class="rail-heading">
           <span>Notebooks</span>
@@ -16,7 +247,7 @@
         <div class="notebook-list" id="notebookList"></div>
       </aside>
 
-      <section class="ledger-window" aria-label="Live money ledger">
+      <section class="ledger-window" aria-label="AI money notebook">
         <header class="window-bar">
           <div class="traffic-lights" aria-hidden="true">
             <span class="red"></span>
@@ -34,33 +265,37 @@
           </div>
 
           <section class="ledger-block" aria-labelledby="incomeHeading">
-            <div class="block-heading" id="incomeHeading">Income</div>
+            <div class="block-heading" id="incomeHeading">Notebook lines</div>
             <div class="code-group income-group" id="incomeRows"></div>
           </section>
 
           <section class="ledger-block" aria-labelledby="spendHeading">
-            <div class="block-heading sr-only" id="spendHeading">Spending</div>
+            <div class="block-heading sr-only" id="spendHeading">AI Composer trace</div>
             <div class="code-group spend-group" id="expenseRows"></div>
           </section>
 
           <section class="ledger-block" aria-labelledby="calculatedHeading">
             <div class="rule-line"></div>
-            <div class="block-heading" id="calculatedHeading">Calculated</div>
+            <div class="block-heading" id="calculatedHeading">Calculation notes</div>
             <div class="code-group calculated-group" id="calculatedRows"></div>
           </section>
         </section>
 
-        <footer class="command-dock" aria-label="AI capture command">
+        <footer class="command-dock" aria-label="AI notebook command">
+          <div class="composer-label">
+            <span>AI Composer</span>
+            <strong>AI writes facts. Ask it to calculate only when you want a note.</strong>
+          </div>
           <div class="command-line">
             <input
               id="commandInput"
               type="text"
               spellcheck="false"
               autocomplete="off"
-              value="dinner sushi 45.90"
-              aria-label="Type a spending note"
+              value="lunch was $55 + 25% tip; calculate remaining"
+              aria-label="Tell AI what happened with money"
             >
-            <button id="submitCommand" type="button" aria-label="Add ledger line">Add</button>
+            <button id="submitCommand" type="button" aria-label="Write notebook note">Write</button>
           </div>
 
           <div class="dock-tools" aria-label="Capture and export tools">
@@ -78,7 +313,7 @@
             <button class="tool-button danger" type="button" id="clearLedger">Clear</button>
           </div>
 
-          <p class="status-line" id="message" role="status">Type a money note and press Enter.</p>
+          <p class="status-line" id="message" role="status">Write a fact, or ask AI to calculate a note.</p>
           <p class="status-line secondary" id="voiceStatus">Voice capture uses browser speech support when available.</p>
           <img id="receiptPreview" class="receipt-preview" alt="Receipt preview">
         </footer>
@@ -86,7 +321,7 @@
 
       <aside class="summary-panel sr-only" aria-label="Ledger summary">
         <dl>
-          <dt>Saved spend</dt>
+          <dt>Latest calculation</dt>
           <dd id="totalAmount">$0.00</dd>
           <dt>Entries</dt>
           <dd id="entryCount">0 entries</dd>
@@ -96,6 +331,6 @@
       </aside>
     </main>
 
-    <script src="app.js"></script>
+    <script src="app.js?v=ios-intent-1"></script>
   </body>
 </html>

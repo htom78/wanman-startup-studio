@@ -2,6 +2,8 @@
 
 一个面向 AI-native founder 的阶段门控创业操作系统。它可以接入 wanman 做多智能体协作，但稳定主线是可重复的本地文件流程：输入创业想法，先完成 Idea Stage 的证据链，再决定是否进入 MVP Gate。
 
+> Public release note: this repository is a working research-and-build scaffold. The stable contract is the file-based stage workflow under `scripts/`, `system/`, `modules/`, and `runs/`. Wanman is an optional execution layer, not a required runtime.
+
 ## 产品定位
 
 目标不是“AI 自动创业”，而是让 founder 用一组受控 agent 完成：
@@ -22,6 +24,7 @@
 - `system/stage-gates/`：阶段门控标准。
 - `modules/`：可选阶段模块，例如 `idea/product-research`。
 - `runs/`：每次 startup run 的独立目录。
+- `prototypes/`：用 startup-studio 跑出来的真实产品验证原型，例如 `monospend-ai-ledger`。
 - `docs/playbook-mapping.md`：Founder Playbook 到系统设计的映射。
 
 ## 快速开始
@@ -81,3 +84,22 @@ MVP Gate 只有三个合法结论：
 ## 可选 Wanman 自动化
 
 `AGENT.md` 和 `agents.json` 提供 wanman sharedWorkspace 的协作约束。实际使用时仍以 `scripts/` 的稳定流程为验收标准；wanman 只是可选执行层。
+
+## 示例原型
+
+`prototypes/monospend-ai-ledger` 是一个用本系统验证出的 AI 记账簿原型。它保留在仓库中作为完整样例，展示从 idea validation 到 MVP trust loop 的产出形态。
+
+```bash
+npm run monospend:prototype
+```
+
+本地配置文件和运行数据默认不会提交：
+
+- `prototypes/monospend-ai-ledger/.env.local`
+- `prototypes/monospend-ai-ledger/data/`
+- `.omx/`
+- `.wanman/`
+
+## License
+
+MIT

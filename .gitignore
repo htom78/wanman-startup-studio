@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+*.log
+
+prototypes/monospend-ai-ledger/data/
+.env
+.env.local
+prototypes/monospend-ai-ledger/.env
+prototypes/monospend-ai-ledger/.env.local
+.omx/
+.wanman/

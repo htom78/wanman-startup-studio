@@ -1,0 +1,49 @@
+{
+  "name": "MonoSpend AI Notebook",
+  "slug": "monospend-ai-notebook",
+  "idea": "A personal finance notebook where the left column is the only source of truth. Users speak, paste, type, or photograph messy money context into an AI Composer. The AI writes editable notebook facts such as income, expenses, variables, tips, splits, and assumptions. The right column shows derived output for each line, but totals are not automatic dashboard state. Aggregate calculations happen only when the user asks for a calculation note, so the answer becomes a timestamped, editable notebook remark rather than an always-on report.",
+  "founderContext": "A second pivot from MonoSpend AI Ledger after studying Soulver 3 and Apple Notes. The product is no longer a category-led expense table. It is an AI-native financial thinking notebook: Apple Notes familiarity, Soulver-style two-column derived results, and AI-generated canonical money lines.",
+  "targetCustomers": [
+    "people who currently reason about money in Apple Notes, Notion, spreadsheets, calculators, or plain text",
+    "freelancers and indie builders who need lightweight cashflow notes without full accounting software",
+    "privacy-conscious manual trackers who do not want bank sync but dislike entering every expense by hand",
+    "users who want to capture receipts, voice notes, and ad hoc financial questions in one editable notebook"
+  ],
+  "region": "global, English-first",
+  "startupStage": "idea",
+  "hypotheses": [
+    "The strongest wedge is not AI expense capture; it is AI turning messy money context into an editable financial notebook.",
+    "User-triggered calculation notes feel more like a notebook than an automatic dashboard and may increase trust because calculations are intentional and reviewable.",
+    "Soulver-style derived result columns are valuable, but MonoSpend should differ by using AI Composer as the primary input and money-notebook workflows as the domain.",
+    "A tiny prototype can validate whether users prefer canonical notebook lines and calculation notes over conventional transaction lists or auto totals."
+  ],
+  "knownAlternatives": [
+    "Soulver 3",
+    "Apple Notes",
+    "Notion",
+    "spreadsheets",
+    "hledger",
+    "Beancount",
+    "Duly AI",
+    "HeyJerni",
+    "Dengii",
+    "Yavo",
+    "Yomio",
+    "Receiptix",
+    "manual notes",
+    "calculator apps"
+  ],
+  "mustAnswer": [
+    "Does AI Composer plus canonical notebook lines create a stronger wedge than AI expense capture alone?",
+    "Does user-triggered calculation note behavior make the product feel more trustworthy and notebook-like than automatic totals?",
+    "Can this be differentiated from Soulver, Apple Notes, plain-text accounting, and AI expense trackers?",
+    "What is the smallest MVP that validates whether users keep using calculation notes for real money decisions?"
+  ],
+  "constraints": {
+    "sourcePolicy": "Use current official pages for Soulver, Apple Notes, plain-text accounting, and AI expense tracker competitors. Mark unsupported claims as needs verification.",
+    "stageGatePolicy": "Allow only a narrow validation MVP; do not recommend bank sync, cloud sync, investment tracking, AI financial advice, or a full mobile finance app yet.",
+    "privacyFirst": true,
+    "aiOutputPolicy": "AI Composer must produce editable canonical notebook lines. Calculations must be deterministic, user-triggered, and saved as calculation notes rather than hidden dashboard state.",
+    "prototypePath": "prototypes/monospend-ai-ledger"
+  }
+}
