@@ -1,0 +1,157 @@
+{
+  "objective": "Build the MonoSpend AI Notebook trust-loop validation web app in the monospend-ai-ledger repo.",
+  "productRepo": "/Volumes/PortableSSD/Projects/Codex_Projects/monospend-ai-ledger",
+  "lanes": [
+    {
+      "id": "foundation",
+      "agent": "dev-foundation",
+      "dependsOn": [],
+      "scope": [
+        "Define notebook line schema and revision metadata",
+        "Define composer response contract",
+        "Set up config loading for OpenRouter-style providers without committing secrets",
+        "Add deterministic fixtures for Chinese and English money notes",
+        "Create unit-test harness for parser, calculation, and persistence"
+      ],
+      "deliverables": [
+        "Shared schema/types",
+        "Storage helpers",
+        "Provider config boundary",
+        "Fixture set",
+        "Baseline tests"
+      ],
+      "verification": [
+        "Unit tests pass",
+        "No local secret files are tracked",
+        "Existing prototype still loads"
+      ]
+    },
+    {
+      "id": "composer",
+      "agent": "dev-composer",
+      "dependsOn": ["foundation"],
+      "scope": [
+        "Implement AI Composer intent classification",
+        "Support record_fact, calculate, text_note, and needs_clarification intents",
+        "Handle malformed model JSON with deterministic fallback",
+        "Return editable preview data before saving",
+        "Preserve raw input only when user confirms"
+      ],
+      "deliverables": [
+        "Composer service/API",
+        "Prompt/schema version",
+        "Fallback extractor",
+        "Composer tests"
+      ],
+      "verification": [
+        "Chinese AA taxi scenario parses into two facts plus optional note",
+        "Calculation request creates calculation note intent",
+        "Provider failure falls back without crashing"
+      ]
+    },
+    {
+      "id": "notebook-ux",
+      "agent": "dev-notebook-ux",
+      "dependsOn": ["foundation"],
+      "scope": [
+        "Add editable line revision interaction",
+        "Add edit with AI Composer and edit text only paths",
+        "Add stale calculation note marking",
+        "Add deletion interaction with undo or confirmation",
+        "Keep bottom input simple with plus, microphone, text, and arrow submit controls"
+      ],
+      "deliverables": [
+        "Notebook revision UI",
+        "Stale-note badge/state",
+        "Deletion interaction",
+        "Responsive layout polish"
+      ],
+      "verification": [
+        "Mobile viewport keeps input usable",
+        "Editing a fact marks dependent calculation notes stale",
+        "Text-only edit does not call Composer"
+      ]
+    },
+    {
+      "id": "validation-telemetry",
+      "agent": "dev-validation",
+      "dependsOn": ["foundation"],
+      "scope": [
+        "Add local privacy-preserving event counters",
+        "Add tester scenario fixture page or script",
+        "Track line created, line edited, composer retried, calculation note created, stale note viewed, export used",
+        "Keep logs local and exportable"
+      ],
+      "deliverables": [
+        "Local event log",
+        "Tester script",
+        "Validation summary export"
+      ],
+      "verification": [
+        "Events are recorded locally",
+        "No raw private financial content is exported unless tester opts in",
+        "Tester script matches MVP measurement framework"
+      ]
+    },
+    {
+      "id": "qa",
+      "agent": "dev-qa",
+      "dependsOn": ["composer", "notebook-ux", "validation-telemetry"],
+      "scope": [
+        "Write regression tests for trust-loop scenarios",
+        "Run accessibility and mobile smoke checks",
+        "Verify export output after edits and deletions",
+        "Record known limitations for tester sessions"
+      ],
+      "deliverables": [
+        "Regression tests",
+        "Smoke checklist",
+        "Known limitations note"
+      ],
+      "verification": [
+        "All automated checks pass",
+        "Manual trust-loop script passes",
+        "No blocker findings remain"
+      ]
+    },
+    {
+      "id": "integration",
+      "agent": "dev-integrator",
+      "dependsOn": ["qa"],
+      "scope": [
+        "Merge lanes in order",
+        "Resolve schema and UI conflicts",
+        "Run final checks",
+        "Prepare demo URL and release notes"
+      ],
+      "deliverables": [
+        "Integrated validation build",
+        "Final smoke report",
+        "Release notes for tester handoff"
+      ],
+      "verification": [
+        "Build starts locally",
+        "Trust-loop manual script passes",
+        "Founder can run the demo URL"
+      ]
+    }
+  ],
+  "integration": {
+    "owner": "dev-integrator",
+    "mergeOrder": [
+      "foundation",
+      "composer",
+      "notebook-ux",
+      "validation-telemetry",
+      "qa",
+      "integration"
+    ],
+    "requiredChecks": [
+      "npm test",
+      "provider-config smoke test",
+      "mobile viewport smoke test",
+      "manual trust-loop script",
+      "git status excludes secrets and local data"
+    ]
+  }
+}
