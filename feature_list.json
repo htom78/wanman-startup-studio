@@ -1,0 +1,44 @@
+{
+  "features": [
+    {
+      "id": "stage-gated-startup-workflow",
+      "name": "Stage-gated startup workflow",
+      "description": "Create runs, validate Idea Stage evidence, promote only approved runs, and validate MVP Gate artifacts.",
+      "status": "done",
+      "dependencies": [],
+      "evidence": [
+        "README documents new, validate, promote, and module commands.",
+        "npm test validates the demo run."
+      ],
+      "next_step": "Keep stage-gate examples current when adding modules."
+    },
+    {
+      "id": "monospend-prototype-sample",
+      "name": "MonoSpend prototype sample",
+      "description": "Keep the example prototype runnable as a validation sample produced by the startup studio workflow.",
+      "status": "done",
+      "dependencies": [
+        "stage-gated-startup-workflow"
+      ],
+      "evidence": [
+        "README documents npm run monospend:prototype.",
+        "Package tests include prototype checks."
+      ],
+      "next_step": "Sync this sample with the standalone prototype when behavior changes."
+    },
+    {
+      "id": "agent-validation-harness",
+      "name": "Agent validation harness",
+      "description": "Maintain Codex-readable startup, state, verification, and handoff files alongside the wanman role protocol.",
+      "status": "done",
+      "dependencies": [
+        "stage-gated-startup-workflow"
+      ],
+      "evidence": [
+        "AGENTS.md, progress.md, session-handoff.md, and init.sh added as the local harness.",
+        "./init.sh passed on 2026-05-26: npm test passed, including demo run stage validation."
+      ],
+      "next_step": "Use the harness during the next stage-gate or module change and keep wanman optional."
+    }
+  ]
+}
